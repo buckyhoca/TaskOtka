@@ -11,6 +11,7 @@ import java.util.Date;
 @Table(name = "cards")
 @AllArgsConstructor
 @NoArgsConstructor
+// Это моя модель Cards -> This is my Cards entity
 public class Cards {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

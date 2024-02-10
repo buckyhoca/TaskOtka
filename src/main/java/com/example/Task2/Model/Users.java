@@ -11,6 +11,7 @@ import java.util.Date;
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
+// Это моя модель пользователя - This is my User entity
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

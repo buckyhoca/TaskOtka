@@ -13,7 +13,8 @@ import java.util.Date;
 @Getter
 @Setter
 
-public class Cards_transactions {
+// Это моя модель Cards_transactions - > This is my Cards_transactions entity
+public class CardsTransactions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

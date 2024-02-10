@@ -3,14 +3,16 @@ import com.example.Task2.Model.*;
 import com.example.Task2.Repository.CardsRepository;
 import com.example.Task2.Repository.CardsTransactionsRepository;
 import com.example.Task2.Repository.UsersRepository;
-import com.example.Task2.Service.PageService;
+import com.example.Task2.Service.InformationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+
+//это класс реализации InformationService
 @Service
-public class PageServiceImpl implements PageService {
+public class InformationServiceImpl implements InformationService {
     @Autowired
     private UsersRepository usersRepository;
 
@@ -20,14 +22,14 @@ public class PageServiceImpl implements PageService {
     @Autowired
     private CardsTransactionsRepository cardsTransactionRepository;
 
-
-
-
+//    класс реализации отделен от интерфейса InformationService
     @Override
     public List<Map<String, Object>> getUserInfo() {
         List<Map<String, Object>> result = new ArrayList<>();
         List<Users> users = usersRepository.findAll();
 
+
+//        этот метод получает всю информацию о пользователях из трех таблиц и возвращается в List
         for (Users user : users) {
             Map<String, Object> userMap = new HashMap<>();
             userMap.put("id", user.getId());
@@ -52,8 +54,8 @@ public class PageServiceImpl implements PageService {
 
                 List<Map<String, Object>> transactionsList = new ArrayList<>();
 
-                List<Cards_transactions> transactions = cardsTransactionRepository.findByCard(card);
-                for (Cards_transactions transaction : transactions) {
+                List<CardsTransactions> transactions = cardsTransactionRepository.findByCard(card);
+                for (CardsTransactions transaction : transactions) {
                     Map<String, Object> transactionMap = new HashMap<>();
                     transactionMap.put("id", transaction.getId());
                     transactionMap.put("amount", transaction.getAmount());

@@ -1,5 +1,5 @@
 package com.example.Task2.Controller;
-import com.example.Task2.Service.PageService;
+import com.example.Task2.Service.InformationService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,16 +12,17 @@ import java.util.Map;
 @Slf4j
 @RestController
 @RequestMapping(value = "/api/v1", produces = "application/json")
-public class PageController {
+public class InformationController {
 
-    private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+    private static final Logger logger = LoggerFactory.getLogger(InformationController.class);
 
     @Autowired
-    PageService pageService;
-
+    InformationService informationService;
+//Это моя конечная точка для ответа на URL-адрес пользовательской информации.
+//This is my end point to response the user-info url.
     @GetMapping("/user-info")
     public List<Map<String, Object>> getUserInfo(){
         logger.info("It is now executing here ");
-        return pageService.getUserInfo();
+        return informationService.getUserInfo();
     }
 }
