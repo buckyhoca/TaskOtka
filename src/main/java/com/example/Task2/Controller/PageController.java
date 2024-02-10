@@ -11,7 +11,6 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping(value = "/api/v1", produces = "application/json")
 public class PageController {
 
